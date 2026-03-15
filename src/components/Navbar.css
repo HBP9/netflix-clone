@@ -36,12 +36,11 @@
 }
 
 .lang_icon img,
-.arrow img {
+.caret img {
   width: 14px;
   height: 14px;
 }
 
-/* Dropdown positions relative to navbar_btns */
 .dropdown {
   position: absolute;
   top: 110%;

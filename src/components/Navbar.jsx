@@ -27,7 +27,7 @@ const Navbar = () => {
               <img src={lang} alt="Language Icon" />
             </span>
             {selectedLang}
-            <span className={`arrow ${isOpen ? "open" : ""}`}>
+            <span className={`caret ${isOpen ? "open" : ""}`}>
               <img src={isOpen ? caretUp : caretDown} alt="Caret Icon" />
             </span>
           </button>
