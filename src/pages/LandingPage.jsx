@@ -1,3 +1,4 @@
+import FAQ from "../components/FAQ";
 import FeatureCards from "../components/FeatureCards";
 import HeroSection from "../components/HeroSection";
 import Navbar from "../components/Navbar";
@@ -10,6 +11,7 @@ const LandingPage = () => {
       <HeroSection />
       <TrendingRow />
       <FeatureCards />
+      <FAQ />
     </>
   );
 };
