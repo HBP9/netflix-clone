@@ -3,12 +3,14 @@ import tmdb, { IMAGE_BASE_URL } from "../api/tmdb";
 import { requests } from "../api/requests";
 import "./TrendingRow.css";
 import caretRightNarrow from "../assets/caret-right-narrow.svg";
+import MovieModal from "./MovieModal";
 
 const TrendingRow = () => {
   const rowRef = useRef(null);
   const [movies, setMovies] = useState([]);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
+  const [selectedMovie, setSelectedMovie] = useState(null);
 
   const handleScroll = () => {
     const { scrollLeft, scrollWidth, clientWidth } = rowRef.current;
@@ -54,7 +56,11 @@ const TrendingRow = () => {
 
         <div className="trending_row" ref={rowRef} onScroll={handleScroll}>
           {movies.map((movie, index) => (
-            <div key={movie.id} className="movie_card">
+            <div
+              key={movie.id}
+              className="movie_card"
+              onClick={() => setSelectedMovie(movie)}
+            >
               <span className="movie_number">{index + 1}</span>
               <div className="movie_poster">
                 <img
@@ -72,6 +78,12 @@ const TrendingRow = () => {
           </button>
         )}
       </div>
+      {selectedMovie && (
+        <MovieModal
+          movie={selectedMovie}
+          onClose={() => setSelectedMovie(null)}
+        />
+      )}
     </section>
   );
 };
