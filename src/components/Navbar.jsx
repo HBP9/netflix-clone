@@ -4,12 +4,13 @@ import netflixLogo from "../assets/netflix-logo.svg";
 import lang from "../assets/translator-icon.svg";
 import caretUp from "../assets/caret-up.svg";
 import caretDown from "../assets/caret-down.svg";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedLang, setSelectedLang] = useState("English");
-
   const languages = ["English", "हिन्दी"];
+  const navigate = useNavigate();
 
   const handleSelect = (lang) => {
     setSelectedLang(lang);
@@ -44,7 +45,9 @@ const Navbar = () => {
               ))}
             </div>
           )}
-          <button className="signin_btn">Sign In</button>
+          <button className="signin_btn" onClick={() => navigate("/login")}>
+            Sign In
+          </button>
         </div>
       </nav>
     </>

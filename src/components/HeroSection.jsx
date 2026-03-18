@@ -1,9 +1,30 @@
 import { useState } from "react";
 import "./HeroSection.css";
 import caretRight from "../assets/caret-right.svg";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const validateEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const handleGetStarted = () => {
+    if (!email) {
+      setError("Email is required.");
+      return;
+    }
+    if (!validateEmail(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+    setError("");
+    navigate("/login", { state: { email } });
+  };
+
   return (
     <section className="hero">
       <div className="hero_overlay">
@@ -14,19 +35,26 @@ const HeroSection = () => {
             Ready to watch? Enter your email to create or restart your
             membership.
           </p>
-          <div className="hero_input">
-            <input
-              type="email"
-              placeholder="Email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <button className="get_started_btn">
-              Get Started
-              <span>
-                <img src={caretRight} alt="caret-right"></img>
-              </span>
-            </button>
+          <div className="hero_input_wrapper">
+            <div className="hero_input">
+              <input
+                type="email"
+                placeholder="Email address"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  if (error) setError("");
+                }}
+                className={error ? "input_error" : ""}
+              />
+              <button className="get_started_btn" onClick={handleGetStarted}>
+                Get Started
+                <span>
+                  <img src={caretRight} alt="caret-right"></img>
+                </span>
+              </button>
+            </div>
+            {error && <p className="error_msg">⚠ {error}</p>}
           </div>
         </div>
       </div>

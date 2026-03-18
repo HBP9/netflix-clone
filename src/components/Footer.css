@@ -57,3 +57,22 @@
   color: #757575;
   margin-top: 16px;
 }
+
+.hero_input_wrapper {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input_error {
+  border-color: #e87c03 !important;
+}
+
+.error_msg {
+  color: #e87c03;
+  font-size: 0.9rem;
+  text-align: left;
+  padding-left: 4px;
+}
