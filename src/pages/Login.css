@@ -211,3 +211,14 @@
 .login_footer_column a:hover {
   text-decoration: underline;
 }
+
+.error_msg {
+  color: #e87c03;
+  font-size: 0.9rem;
+  text-align: left;
+  padding-left: 4px;
+}
+
+.input_error {
+  border: 1px solid #e87c03 !important;
+}
