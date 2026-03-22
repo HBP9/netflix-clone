@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "./ProfileSelect.css";
+import { useAuth } from "../hooks/useAuth";
 
 const profiles = [
   { id: 1, name: "Yash", color: "#4169e1" },
@@ -9,7 +10,13 @@ const profiles = [
 ];
 
 const ProfileSelect = () => {
+  const { selectProfile } = useAuth();
   const navigate = useNavigate();
+
+  const handleProfileClick = (profile) => {
+    selectProfile(profile);
+    navigate("/home");
+  };
   return (
     <section className="profile-select">
       <h1 className="profile-select_title">Who's watching?</h1>
@@ -18,7 +25,7 @@ const ProfileSelect = () => {
           <div
             key={profile.id}
             className="profile_item"
-            onClick={() => navigate("/home")}
+            onClick={() => handleProfileClick(profile)}
           >
             <div
               className="profile_card"

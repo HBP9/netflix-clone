@@ -3,9 +3,11 @@ import { AuthContext } from "./AuthContext";
 
 const getInitialState = () => {
   const savedUser = localStorage.getItem("netflix_user");
+  const savedProfile = localStorage.getItem("netflix_profile");
   return {
     user: savedUser ? JSON.parse(savedUser) : null,
     isAuthenticated: !!savedUser,
+    selectedProfile: savedProfile ? JSON.parse(savedProfile) : null,
   };
 };
 
@@ -23,6 +25,8 @@ const authReducer = (state, action) => {
         user: null,
         isAuthenticated: false,
       };
+    case "SET_PROFILE":
+      return { ...state, selectedProfile: action.payload };
     default:
       return state;
   }
@@ -42,8 +46,13 @@ export const AuthProvider = ({ children }) => {
     dispatch({ type: "LOGOUT" });
   };
 
+  const selectProfile = (profile) => {
+    localStorage.setItem("netflix_profile", JSON.stringify(profile));
+    dispatch({ type: "SET_PROFILE", payload: profile });
+  };
+
   return (
-    <AuthContext.Provider value={{ ...state, login, logout }}>
+    <AuthContext.Provider value={{ ...state, login, logout, selectProfile }}>
       {children}
     </AuthContext.Provider>
   );

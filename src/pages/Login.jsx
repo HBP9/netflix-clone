@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import netflixLogo from "../assets/netflix-logo.svg";
 import "./Login.css";
-import { useAuth } from "../context/useAuth";
+import { useAuth } from "../hooks/useAuth";
 
 const Login = () => {
   const location = useLocation();
