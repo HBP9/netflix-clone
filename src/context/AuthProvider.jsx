@@ -1,9 +1,12 @@
-import { useReducer, useEffect } from "react";
+import { useReducer } from "react";
 import { AuthContext } from "./AuthContext";
 
-const InitialState = {
-  user: null,
-  isAuthenticated: false,
+const getInitialState = () => {
+  const savedUser = localStorage.getItem("netflix_user");
+  return {
+    user: savedUser ? JSON.parse(savedUser) : null,
+    isAuthenticated: !!savedUser,
+  };
 };
 
 const authReducer = (state, action) => {
@@ -26,14 +29,7 @@ const authReducer = (state, action) => {
 };
 
 export const AuthProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(authReducer, InitialState);
-
-  useEffect(() => {
-    const savedUser = localStorage.getItem("netflix_user");
-    if (savedUser) {
-      dispatch({ type: "LOGIN", payload: JSON.parse(savedUser) });
-    }
-  }, []);
+  const [state, dispatch] = useReducer(authReducer, null, getInitialState);
 
   const login = (email) => {
     const user = { email };

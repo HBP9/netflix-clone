@@ -40,7 +40,7 @@ const Login = () => {
     e.preventDefault();
     if (!validate()) return;
     login(email);
-    navigate("/home");
+    navigate("/profile");
   };
 
   return (
