@@ -1,0 +1,171 @@
+.mc_movie_card {
+  position: relative;
+  flex: 0 0 16.5%;
+  aspect-ratio: 16/9;
+  height: auto;
+  cursor: pointer;
+  border-radius: 4px;
+  z-index: 1;
+  transition: opacity 0.2s ease;
+}
+
+.mc_movie_card.hovered {
+  opacity: 0.5;
+}
+
+.mc_movie_card_image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.mc_movie_card_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mc_card_title_overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 8px 6px 8px;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
+}
+
+.mc_card_title {
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Portal hover card — rendered directly on body */
+.mc_hover_portal {
+  pointer-events: none;
+}
+
+.mc_movie_card_hover {
+  background: #181818;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.9);
+  pointer-events: all;
+  animation: hoverIn 0.15s ease forwards;
+}
+
+@keyframes hoverIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.mc_hover_img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  position: relative;
+}
+
+.mc_hover_img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mc_hover_info {
+  padding: 12px 14px;
+  background: #181818;
+}
+
+.mc_hover_actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.mc_hover_actions_left {
+  display: flex;
+  gap: 8px;
+}
+
+.mc_hover_btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid #aaa;
+  background: transparent;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.mc_hover_btn:hover {
+  border-color: #fff;
+}
+
+.mc_play_btn {
+  background: #fff;
+  border-color: #fff;
+  color: #000;
+}
+
+.mc_play_btn:hover {
+  background: #e5e5e5;
+}
+
+.mc_hover_details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mc_hover_tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.mc_hover_match {
+  color: #46d369;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.mc_hover_tag {
+  border: 1px solid #aaa;
+  color: #aaa;
+  padding: 1px 6px;
+  font-size: 0.7rem;
+  border-radius: 2px;
+}
+
+.mc_hover_genre {
+  color: #ccc;
+  font-size: 0.75rem;
+}
+
+.mc_hover_video {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  pointer-events: none;
+}

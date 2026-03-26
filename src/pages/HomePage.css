@@ -1,0 +1,9 @@
+.home_page {
+  background: #141414;
+  min-height: 100vh;
+}
+
+.home_rows {
+  padding-top: 0;
+  padding-bottom: 60px;
+}

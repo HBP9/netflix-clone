@@ -1,0 +1,106 @@
+.movie_row {
+  padding: 0;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.movie_row_title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #e5e5e5;
+  margin-bottom: 8px;
+  padding-left: 60px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.movie_row_title:hover {
+  color: #fff;
+}
+
+.movie_row_wrapper {
+  position: relative;
+}
+
+/* Removed .movie_row_outer entirely */
+
+.movie_row_cards {
+  display: flex;
+  gap: 4px;
+  padding: 10px 60px; /* padding back here */
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.movie_row_cards::-webkit-scrollbar {
+  display: none;
+}
+
+.row_arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 200;
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  color: #fff;
+  width: 60px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.row_arrow:hover {
+  background: rgba(0, 0, 0, 0.95);
+}
+
+.row_arrow_left {
+  left: 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.row_arrow_right {
+  right: 0;
+  border-radius: 4px 0 0 4px;
+}
+
+.movie_row_skeleton {
+  padding: 20px 60px;
+}
+
+.skeleton_title {
+  width: 200px;
+  height: 24px;
+  background: #333;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  animation: shimmer 1.5s infinite;
+}
+
+.skeleton_cards {
+  display: flex;
+  gap: 4px;
+}
+
+.skeleton_card {
+  flex: 0 0 16.5%;
+  height: 140px;
+  background: #333;
+  border-radius: 4px;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background: #333;
+  }
+  50% {
+    background: #444;
+  }
+  100% {
+    background: #333;
+  }
+}

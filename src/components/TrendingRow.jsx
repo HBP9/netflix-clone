@@ -1,16 +1,17 @@
-import { useRef, useState, useEffect } from "react";
-import tmdb, { IMAGE_BASE_URL } from "../api/tmdb";
+import { useRef, useState } from "react";
+import { IMAGE_BASE_URL } from "../api/tmdb";
 import { requests } from "../api/requests";
 import "./TrendingRow.css";
 import caretRightNarrow from "../assets/caret-right-narrow.svg";
 import MovieModal from "./MovieModal";
+import useFetch from "../hooks/useFetch";
 
 const TrendingRow = () => {
   const rowRef = useRef(null);
-  const [movies, setMovies] = useState([]);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
   const [selectedMovie, setSelectedMovie] = useState(null);
+  const { data: movies } = useFetch(requests.trending);
 
   const handleScroll = () => {
     const { scrollLeft, scrollWidth, clientWidth } = rowRef.current;
@@ -25,19 +26,6 @@ const TrendingRow = () => {
   const handleScrollLeft = () => {
     rowRef.current.scrollLeft -= 400;
   };
-
-  useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const response = await tmdb.get(requests.trending);
-        setMovies(response.data.results);
-      } catch (error) {
-        console.error("Error fetching trending movies:", error);
-      }
-    };
-
-    fetchMovies();
-  }, []);
 
   return (
     <section className="trending">
