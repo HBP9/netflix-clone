@@ -1,0 +1,50 @@
+.shows_page {
+  background: #141414;
+  min-height: 100vh;
+}
+
+.shows_rows {
+  padding-bottom: 60px;
+}
+
+.shows_genre_content {
+  padding: 0 60px 60px 60px;
+}
+
+.genre_selected_title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.genre_grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+}
+
+.genre_grid_loading {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+}
+
+.skeleton_card {
+  aspect-ratio: 16/9;
+  background: #333;
+  border-radius: 4px;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background: #333;
+  }
+  50% {
+    background: #444;
+  }
+  100% {
+    background: #333;
+  }
+}

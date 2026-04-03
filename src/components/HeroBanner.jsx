@@ -6,8 +6,8 @@ import tmdb from "../api/tmdb";
 import { BACKDROP_BASE_URL } from "../api/tmdb";
 import "./HeroBanner.css";
 
-const HeroBanner = () => {
-  const { data: movies } = useFetch(requests.trending);
+const HeroBanner = ({ fetchUrl = requests.trending }) => {
+  const { data: movies } = useFetch(fetchUrl);
   const [movie, setMovie] = useState(null);
   const [muted, setMuted] = useState(true);
   const [videoKey, setVideoKey] = useState(null);
