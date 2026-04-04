@@ -1,0 +1,19 @@
+.new_popular_page {
+  background: #141414;
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+.new_popular_header {
+  padding: 20px 60px;
+}
+
+.new_popular_title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.new_popular_rows {
+  padding-bottom: 60px;
+}

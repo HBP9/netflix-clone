@@ -37,6 +37,12 @@ export const requests = {
   familyMovies: "/discover/movie?with_genres=10751",
   crimeMovies: "/discover/movie?with_genres=80",
   dramaMovies: "/discover/movie?with_genres=18",
+
+  newOnNetflix: "/movie/now_playing",
+  top10Movies: "/trending/movie/day",
+  top10Shows: "/trending/tv/day",
+  comingSoon: "/movie/upcoming",
+  popularThisWeek: "/trending/all/week",
 };
 
 export const getMovieVideos = (id, mediaType = "movie") =>

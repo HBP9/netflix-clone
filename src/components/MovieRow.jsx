@@ -4,11 +4,13 @@ import useFetch from "../hooks/useFetch";
 import MovieCard from "./MovieCard";
 import "./MovieRow.css";
 
-const MovieRow = ({ title, fetchUrl }) => {
+const MovieRow = ({ title, fetchUrl, isTop10 = false }) => {
   const { data: movies, loading } = useFetch(fetchUrl);
   const rowRef = useRef(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
+
+  const displayMovies = isTop10 ? movies.slice(0, 10) : movies;
 
   const handleScroll = () => {
     const { scrollLeft, scrollWidth, clientWidth } = rowRef.current;
@@ -48,8 +50,12 @@ const MovieRow = ({ title, fetchUrl }) => {
         )}
 
         <div className="movie_row_cards" ref={rowRef} onScroll={handleScroll}>
-          {movies.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} />
+          {displayMovies.map((movie, index) => (
+            <MovieCard
+              key={movie.id}
+              movie={movie}
+              rank={isTop10 ? index + 1 : null}
+            />
           ))}
         </div>
 

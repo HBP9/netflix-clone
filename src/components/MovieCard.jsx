@@ -121,7 +121,7 @@ const HoverCard = ({
   );
 };
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, rank = null }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [hoverPosition, setHoverPosition] = useState(null);
   const cardRef = useRef(null);
@@ -185,10 +185,11 @@ const MovieCard = ({ movie }) => {
     <>
       <div
         ref={cardRef}
-        className={`mc_movie_card ${isHovered ? "hovered" : ""}`}
+        className={`mc_movie_card ${isHovered ? "hovered" : ""} ${rank ? "mc_ranked" : ""}`}
         onMouseEnter={showHover}
         onMouseLeave={hideHover}
       >
+        {rank && <span className="mc_rank_number">{rank}</span>}
         <div className="mc_movie_card_image">
           <img src={imageUrl} alt={title} />
           <div className="mc_card_title_overlay">
