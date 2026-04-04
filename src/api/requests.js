@@ -23,6 +23,20 @@ export const requests = {
   tvMystery: "/discover/tv?with_genres=9648",
   kDramas: "/discover/tv?with_origin_country=KR",
   britishShows: "/discover/tv?with_origin_country=GB",
+  // Movies
+  bollywoodMovies: "/discover/movie?with_original_language=hi",
+  indianMovies: "/discover/movie?region=IN&sort_by=popularity.desc",
+  usMovies: "/discover/movie?with_origin_country=US",
+  koreanMovies: "/discover/movie?with_origin_country=KR",
+  europeanMovies: "/discover/movie?with_origin_country=FR",
+  thrillerMovies: "/discover/movie?with_genres=53",
+  sciFiMovies: "/discover/movie?with_genres=878",
+  animationMovies: "/discover/movie?with_genres=16",
+  documentaries: "/discover/movie?with_genres=99",
+  awardWinning: "/discover/movie?sort_by=vote_average.desc&vote_count.gte=1000",
+  familyMovies: "/discover/movie?with_genres=10751",
+  crimeMovies: "/discover/movie?with_genres=80",
+  dramaMovies: "/discover/movie?with_genres=18",
 };
 
 export const getMovieVideos = (id, mediaType = "movie") =>
